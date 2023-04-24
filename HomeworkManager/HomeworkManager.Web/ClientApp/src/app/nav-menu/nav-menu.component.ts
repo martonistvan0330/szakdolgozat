@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  loggedIn: boolean = false;
+
+  ngOnInit() {
+    this.loggedIn = localStorage.getItem('logged-in') !== null
+  }
 
   collapse() {
     this.isExpanded = false;

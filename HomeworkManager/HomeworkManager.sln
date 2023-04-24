@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkManager.Web", "HomeworkManager.Web\HomeworkManager.Web.csproj", "{B581C042-9663-4BED-BDC3-5D22D69A233C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkManager.Dal", "HomeworkManager.Dal\HomeworkManager.Dal.csproj", "{FB923C4C-29B3-423A-9605-2364568FAEDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B581C042-9663-4BED-BDC3-5D22D69A233C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B581C042-9663-4BED-BDC3-5D22D69A233C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B581C042-9663-4BED-BDC3-5D22D69A233C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB923C4C-29B3-423A-9605-2364568FAEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB923C4C-29B3-423A-9605-2364568FAEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB923C4C-29B3-423A-9605-2364568FAEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB923C4C-29B3-423A-9605-2364568FAEDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
