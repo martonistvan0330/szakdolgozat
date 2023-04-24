@@ -11,12 +11,6 @@ export class FetchSecretComponent {
 
   constructor(http: SuperHttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<WeatherForecast[]>(baseUrl + 'api/weatherforecast/secret', result => this.forecasts = result, _ => { });
-//http.get<WeatherForecast[]>(baseUrl + 'api/weatherforecast/secret')
-    //  .subscribe(
-    //    result => {
-    //      this.forecasts = result;
-    //    },
-    //    error => console.error(error));
   }
 }
 

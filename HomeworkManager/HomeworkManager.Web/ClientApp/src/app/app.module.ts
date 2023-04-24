@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { FetchSecretComponent } from './fetch-secret/fetch-secret.component';
 import { TokenInterceptor } from './token-interceptor';
 import { SuperHttpClient } from './super-http-client';
+import { GroupListComponent } from './group/group-list/group-list.component';
+import { GroupCreateComponent } from './group/group-create/group-create.component';
+import { GroupDetailsComponent } from './group/group-details/group-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { SuperHttpClient } from './super-http-client';
     FetchDataComponent,
     LoginComponent,
     RegisterComponent,
-    FetchSecretComponent
+    FetchSecretComponent,
+    GroupListComponent,
+    GroupCreateComponent,
+    GroupDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +42,10 @@ import { SuperHttpClient } from './super-http-client';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'fetch-secret', component: FetchSecretComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'groups', component: GroupListComponent },
+      { path: 'groups/:id', component: GroupDetailsComponent },
+      { path: 'groups/create', component: GroupCreateComponent }
     ])
   ],
   providers: [

@@ -56,4 +56,45 @@ export class SuperHttpClient {
           }
         });
   }
+
+  async post<T>(route: string, body: any, onSuccess: (result: T) => void, onError: (error: any) => void) {
+    this.http.post<T>(route, body)
+      .subscribe(
+        result => onSuccess(result),
+        error => {
+          if (error.status === 401) {
+            const accessToken = localStorage.getItem('access-token');
+            const refreshToken = localStorage.getItem('refresh-token');
+
+            if (accessToken !== null && refreshToken !== null) {
+              this.http.post<AuthenticationResponse>(this.baseUrl + 'api/auth/refresh', new RefreshRequest(accessToken, refreshToken))
+                .subscribe(
+                  response => {
+                    localStorage.setItem('access-token', response.accessToken);
+                    localStorage.setItem('refresh-token', response.refreshToken);
+
+                    this.http.get<T>(route)
+                      .subscribe(
+                        result => onSuccess(result),
+                        error => {
+                          if (error.status === 401) {
+                            this.router.navigate(['/', 'login']);
+                          } else {
+                            onError(error);
+                          }
+                        }
+                      )
+                  },
+                  error => {
+                    onError(error);
+                  }
+                );
+            } else {
+              this.router.navigate(['/', 'login']);
+            }
+          } else {
+            onError(error);
+          }
+        });
+  }
 }

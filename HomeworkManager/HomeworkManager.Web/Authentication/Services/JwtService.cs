@@ -1,4 +1,5 @@
-﻿using HomeworkManager.Dal.Constants;
+﻿using HomeworkManager.Dal;
+using HomeworkManager.Dal.Constants;
 using HomeworkManager.Dal.Entities;
 using HomeworkManager.Web.Authentication.Models;
 using Microsoft.AspNetCore.Identity;
@@ -16,11 +17,13 @@ namespace HomeworkManager.Web.Authentication.Services
 
         private readonly IConfiguration _configuration;
         private readonly UserManager<User> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public JwtService(IConfiguration configuration, UserManager<User> userManager)
+        public JwtService(IConfiguration configuration, UserManager<User> userManager, ApplicationDbContext context)
         {
             _configuration = configuration;
             _userManager = userManager;
+            _context = context;
         }
 
         public async Task<AuthenticationResponse> CreateTokens(User user)
@@ -69,7 +72,7 @@ namespace HomeworkManager.Web.Authentication.Services
 
             var user = await _userManager.FindByNameAsync(principal.Identity.Name);
 
-            if (!user.RefreshTokens.Select(rt => rt.Token).Contains(refreshToken))
+            if (!_context.RefreshTokens.Where(rt => rt.UserId == user.Id).Select(rt => rt.Token).Contains(refreshToken))
             {
                 throw new Exception("Invalid refresh token");
             }

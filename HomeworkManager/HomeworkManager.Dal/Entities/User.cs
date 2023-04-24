@@ -9,6 +9,8 @@ namespace HomeworkManager.Dal.Entities
 {
     public class User : IdentityUser<int>
     {
-        public HashSet<RefreshToken> RefreshTokens { get; set; } = new();
+        public ICollection<RefreshToken> RefreshTokens { get; set; } = new HashSet<RefreshToken>();
+        public ICollection<Group> Groups { get; set; } = new HashSet<Group>();
+        public ICollection<Group> CreatedGroups { get; set; } = new HashSet<Group>();
     }
 }
