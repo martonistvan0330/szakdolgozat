@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">HomeworkManager</string>
+    <string name="button_label_dont_have_account">I don\'t have an account yet</string>
+    <string name="textfield_label_email">email</string>
+    <string name="textfield_label_password">password</string>
+    <string name="button_label_login">Log in</string>
+    <string name="textfield_label_confirmpassword">confirm password</string>
+    <string name="button_label_register">Register</string>
+    <string name="button_label_already_have_account">I already have an account</string>
+    <string name="textfield_label_username">username</string>
+    <string name="text_empty_group_list">You are not in any groups yet</string>
+    <string name="text_your_group_list">Your groups</string>
+</resources>
